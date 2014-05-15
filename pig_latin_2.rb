@@ -2,7 +2,7 @@ class PigLatin
   def input
     puts ''
     puts 'Welcome to the english => piglatin piglatin => english translator!'
-    puts 'Input your motherfucking sentence!'
+    puts 'Input a sentence!'
     puts ''
     @words = gets.chomp.downcase.gsub(/[^a-z\s]/, '').split
     puts ''
