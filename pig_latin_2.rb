@@ -1,6 +1,8 @@
 class PigLatin
   def detect_input
     @words = []
+    @translated = []
+    @given_language = ""
     ispiglatin = true
     @words.each do |word|
       if word[-2..-1] == 'ay'
@@ -35,7 +37,6 @@ class PigLatin
     else
       @words = englishify.split
     end
-    @translated = []
     @translated.join(' ')
   end
 
