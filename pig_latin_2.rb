@@ -1,8 +1,5 @@
 class PigLatin
   def detect_input
-    @words = []
-    @translated = []
-    @given_language = ""
     ispiglatin = true
     @words.each do |word|
       if word[-2..-1] == 'ay'
@@ -20,6 +17,7 @@ class PigLatin
   end
 
   def input
+    @words = []
     puts ''
     puts 'Welcome to the english => piglatin piglatin => english translator!'
     puts 'Input your motherfucking sentence!'
@@ -32,6 +30,7 @@ class PigLatin
   end
 
   def translate
+    @translated = []
     if @given_language == "english"
       @words = platinify.split
     else
@@ -65,8 +64,7 @@ class PigLatin
   end 
 end
 
-pl = PigLatin.new 
-pl.detect_input
+pl = PigLatin.new
 pl.input
 puts pl.translate
 puts ''
