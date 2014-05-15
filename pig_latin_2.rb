@@ -35,7 +35,9 @@ class PigLatin
     else
       @words = englishify.split
     end
-    puts @translated
+    print @translated.join(' ')
+    puts ""
+    puts ""
   end
 
   def platinify
@@ -66,4 +68,3 @@ end
 pl = PigLatin.new
 pl.input
 pl.translate
-puts ''
