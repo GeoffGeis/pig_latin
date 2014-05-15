@@ -13,14 +13,7 @@ class PigLatin
 
   def detect_input
     ispiglatin = true
-    @words.each do |word|
-      if word[-2..-1] == 'ay'
-        next
-      else
-        ispiglatin = false
-        break
-      end
-    end
+    @words.each { |word| word[-2..-1] == 'ay' ? next : ispiglatin = false ; break }
     if ispiglatin
       @given_language = "piglatin"
     else
