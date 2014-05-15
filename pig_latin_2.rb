@@ -1,4 +1,17 @@
 class PigLatin
+  def input
+    @words = []
+    puts ''
+    puts 'Welcome to the english => piglatin piglatin => english translator!'
+    puts 'Input your motherfucking sentence!'
+    puts ''
+    @words = gets.chomp.downcase.gsub(/[^a-z\s]/, '').split
+    puts ''
+    puts '============================='
+    puts ''
+    detect_input
+  end
+
   def detect_input
     ispiglatin = true
     @words.each do |word|
@@ -14,19 +27,6 @@ class PigLatin
     else
       @given_language = "english"
     end
-  end
-
-  def input
-    @words = []
-    puts ''
-    puts 'Welcome to the english => piglatin piglatin => english translator!'
-    puts 'Input your motherfucking sentence!'
-    puts ''
-    @words = gets.chomp.downcase.gsub(/[^a-z\s]/, '').split
-    puts ''
-    puts '============================='
-    puts ''
-    detect_input
   end
 
   def translate
