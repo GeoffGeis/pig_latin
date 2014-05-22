@@ -1,38 +1,23 @@
 class PigLatin
-
   def initialize
-    @words = []
-    @translated = []
-    @given_language = ""
+    input_values; detect_input; translate
+  end
+    
+  def input_values
+    puts ''; puts 'Welcome to the english => piglatin piglatin => english translator!'
+    puts 'Input a sentence!'; puts ''
+    @words = gets.chomp.downcase.gsub(/[^a-z\s]/, '').split
+    puts ''; puts '============================='; puts ''
   end
 
   def detect_input
     ispiglatin = true
-    @words.each do |word|
-      if word[-2..-1] == 'ay'
-        next
-      else
-        ispiglatin = false
-        break
-      end
-    end
+    @words.each { |word| word[-2..-1] == 'ay' ? next : ispiglatin = false ; break }
     if ispiglatin
       @given_language = "piglatin"
     else
       @given_language = "english"
     end
-  end
-
-  def input
-    puts ''
-    puts 'Welcome to the english => piglatin piglatin => english translator!'
-    puts 'Input your sentence!'
-    puts ''
-    @words = gets.chomp.downcase.gsub(/[^a-z\s]/, '').split
-    puts ''
-    puts '============================='
-    puts ''
-    detect_input
   end
 
   def translate
@@ -41,7 +26,7 @@ class PigLatin
     else
       @words = englishify.split
     end
-    @translated.join(' ')
+    print @translated.join(' '); puts ""; puts ""
   end
 
   def platinify
@@ -67,11 +52,6 @@ class PigLatin
     end
     @translated.join(' ')
   end 
-
 end
 
-pl = PigLatin.new 
-pl.detect_input
-pl.input
-puts pl.translate
-puts ''
+pl = PigLatin.new
