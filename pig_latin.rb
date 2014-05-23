@@ -1,5 +1,6 @@
 class PigLatin
   def initialize
+    @words, @given_language, @translated = [], "",[]
     input_values; detect_input; translate
   end
     
@@ -13,19 +14,11 @@ class PigLatin
   def detect_input
     ispiglatin = true
     @words.each { |word| word[-2..-1] == 'ay' ? next : ispiglatin = false ; break }
-    if ispiglatin
-      @given_language = "piglatin"
-    else
-      @given_language = "english"
-    end
+    ispiglatin ? @given_language = "piglatin" : @given_language = "english"
   end
 
   def translate
-    if @given_language == "english"
-      @words = platinify.split
-    else
-      @words = englishify.split
-    end
+    @given_language == "english" ? @words = platinify.split : @words = englishify.split
     print @translated.join(' '); puts ""; puts ""
   end
 
