@@ -1,6 +1,6 @@
 class PigLatin
   def initialize
-    @words, @given_language, @translated = input_values; detect_input; translate
+    @words, @given_language, @translated = input_values, detect_input, translate
   end
     
   def input_values
